@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Solicita tu presupuesto - Glisten</title>
+<script src="/assets/js/colors.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: window.GLISTEN_COLORS.quote.primary,
+          secondary: window.GLISTEN_COLORS.quote.secondary,
+          "background-light": window.GLISTEN_COLORS.quote.backgroundLight,
+          "background-dark": window.GLISTEN_COLORS.quote.backgroundDark,
+          "surface-light": window.GLISTEN_COLORS.quote.surfaceLight,
+          "surface-dark": window.GLISTEN_COLORS.quote.surfaceDark,
+          "text-light": window.GLISTEN_COLORS.quote.textLight,
+          "text-dark": window.GLISTEN_COLORS.quote.textDark,
+          "muted-light": window.GLISTEN_COLORS.quote.mutedLight,
+          "muted-dark": window.GLISTEN_COLORS.quote.mutedDark,
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  .input-underline { border: none; border-bottom: 2px solid #e5e7eb; background: transparent; padding: 0.75rem 0; transition: border-color 0.3s ease; }
+  .input-underline:focus { outline: none; border-bottom-color: #1a365d; box-shadow: none; }
+</style>
+</head>
+<body class="bg-surface-light min-h-screen flex flex-col text-slate-900">
+<header class="sticky top-0 w-full z-50 bg-slate-100/95 border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 h-32 flex items-center justify-between">
+    <a href="/#top"><img src="/assets/images/logo.png" alt="Glisten" class="h-28 w-auto"/></a>
+    <nav class="hidden md:flex items-center space-x-8">
+      <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/#top">Inicio</a>
+      <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/#services">Servicios</a>
+      <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/#about">Nosotros</a>
+      <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/trabaja-con-nosotros">Trabaja con nostros</a>
+    </nav>
+    <a class="hidden md:inline-flex px-6 py-3 bg-primary text-white text-sm font-bold uppercase tracking-wider hover:bg-[#2c4c7c] transition-all transform hover:-translate-y-1 shadow-lg" href="/solicita-presupuesto">Solicita tu presupuesto</a>
+  </div>
+</header>
+
+<main class="flex-1 flex items-center justify-center font-body selection:bg-primary selection:text-white">
+<div class="w-full max-w-[1400px] bg-background-light shadow-2xl overflow-hidden min-h-screen lg:min-h-[800px] flex flex-col lg:flex-row">
+<div class="lg:w-1/2 relative min-h-[300px] lg:min-h-full">
+<img alt="Professional cleaning specialist smiling while working" class="absolute inset-0 w-full h-full object-cover" src="/assets/images/solicitatupresupuesto.png"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+<div class="absolute bottom-10 left-10 text-white p-6 max-w-md hidden lg:block">
+<blockquote class="text-3xl mb-4 italic font-semibold">"Transformamos espacios, mejoramos vidas."</blockquote>
+<p class="text-sm font-light opacity-90">Solicita una propuesta profesional para tu espacio.</p>
+</div>
+</div>
+<div class="lg:w-1/2 p-8 md:p-12 lg:p-20 flex flex-col justify-center bg-background-light">
+<div class="max-w-xl mx-auto w-full">
+<header class="mb-10 text-center lg:text-left">
+<h1 class="text-4xl lg:text-5xl font-bold text-text-light mb-4 tracking-tight">Solicita tu presupuesto</h1>
+<p class="text-muted-light text-lg leading-relaxed font-light">Completa tus datos y consulta para que preparemos una propuesta a medida.</p>
+</header>
+<form class="space-y-8 js-form" data-form-type="quote" method="POST">
+<div class="group">
+<label class="block text-sm font-medium text-muted-light mb-1" for="name">Nombre Completo</label>
+<input class="input-underline w-full placeholder-gray-300 text-lg" id="name" name="fullName" placeholder="Ej. Juan Perez" type="text"/>
+</div>
+<div class="group">
+<label class="block text-sm font-medium text-muted-light mb-1" for="email">Correo Electronico</label>
+<input class="input-underline w-full placeholder-gray-300 text-lg" id="email" name="email" placeholder="juan@ejemplo.com" type="email"/>
+</div>
+<div class="group">
+<label class="block text-sm font-medium text-muted-light mb-1" for="message">Consulta</label>
+<textarea class="input-underline w-full placeholder-gray-300 text-lg" id="message" name="message" placeholder="Cuentanos que tipo de servicio necesitas."></textarea>
+</div>
+<p class="form-result text-sm" aria-live="polite"></p>
+<div class="pt-6">
+<button class="w-full bg-primary hover:bg-[#2c4c7c] text-white font-semibold py-4 px-8 rounded shadow-lg transform transition hover:-translate-y-0.5 focus:ring-4 focus:ring-primary/30 text-lg tracking-wide uppercase" type="submit">Enviar Consulta</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+
+<footer class="bg-slate-100/95 text-slate-800 py-16 border-t border-slate-200">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1">
+<a href="/#top"><img src="/assets/images/logo.png" alt="Glisten" class="h-[10.5rem] w-auto mb-6"/></a>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">Elevando el estandar de limpieza profesional. Creamos ambientes puros que inspiran productividad y bienestar.</p>
+</div>
+<div>
+<h3 class="text-slate-900 font-bold uppercase tracking-widest mb-6 text-sm">Empresa</h3>
+<ul class="space-y-4 text-sm text-slate-600">
+<li><a class="hover:text-primary transition-colors" href="/#about">Sobre Nosotros</a></li>
+<li><a class="hover:text-primary transition-colors" href="/trabaja-con-nosotros">Trabaja con nostros</a></li>
+<li><a class="hover:text-primary transition-colors" href="/contacto">Contacto</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-slate-900 font-bold uppercase tracking-widest mb-6 text-sm">Servicios</h3>
+<ul class="space-y-4 text-sm text-slate-600">
+<li><a class="hover:text-primary transition-colors" href="/#services">Limpieza de Oficinas</a></li>
+<li><a class="hover:text-primary transition-colors" href="/#services">Clinicas</a></li>
+<li><a class="hover:text-primary transition-colors" href="/#services">Locales Comerciales</a></li>
+<li><a class="hover:text-primary transition-colors" href="/solicita-presupuesto">Solicita tu presupuesto</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-slate-900 font-bold uppercase tracking-widest mb-6 text-sm">Contacto</h3>
+<ul class="space-y-4 text-sm text-slate-600">
+<li><span>CABA, Buenos Aires, Argentina</span></li>
+<li><span>+54 11 4567 8900</span></li>
+<li><span>contacto@glisten.com</span></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+<p>© 2026 Glisten Services. Todos los derechos reservados.</p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a class="hover:text-white transition-colors" href="#">Privacidad</a>
+<a class="hover:text-white transition-colors" href="#">Terminos</a>
+<a class="hover:text-white transition-colors" href="#">Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
