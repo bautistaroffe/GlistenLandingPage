@@ -1,0 +1,27 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/solicitar-presupuesto"
+  to = "/.netlify/functions/solicitar-presupuesto"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/trabaja-con-nosotros"
+  to = "/.netlify/functions/trabaja-con-nosotros"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/forms/quote"
+  to = "/.netlify/functions/solicitar-presupuesto"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/forms/job"
+  to = "/.netlify/functions/trabaja-con-nosotros"
+  status = 200
+  force = true

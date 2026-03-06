@@ -5,6 +5,31 @@ function setFormResult(form, type, message) {
   result.textContent = message;
 }
 
+function ensureAntiBotFields(form) {
+  let honeypot = form.querySelector('[name="website"]');
+  if (!honeypot) {
+    honeypot = document.createElement('input');
+    honeypot.type = 'text';
+    honeypot.name = 'website';
+    honeypot.autocomplete = 'off';
+    honeypot.tabIndex = -1;
+    honeypot.setAttribute('aria-hidden', 'true');
+    honeypot.style.position = 'absolute';
+    honeypot.style.left = '-9999px';
+    form.appendChild(honeypot);
+  }
+
+  let startedAt = form.querySelector('[name="formStartedAt"]');
+  if (!startedAt) {
+    startedAt = document.createElement('input');
+    startedAt.type = 'hidden';
+    startedAt.name = 'formStartedAt';
+    form.appendChild(startedAt);
+  }
+
+  startedAt.value = String(Date.now());
+}
+
 function emailIsValid(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || '').trim());
 }
@@ -46,6 +71,8 @@ async function sendForm(form) {
 }
 
 document.querySelectorAll('.js-form').forEach((form) => {
+  ensureAntiBotFields(form);
+
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -68,6 +95,7 @@ document.querySelectorAll('.js-form').forEach((form) => {
     try {
       await sendForm(form);
       form.reset();
+      ensureAntiBotFields(form);
       setFormResult(form, 'success', 'Formulario enviado correctamente. Te contactaremos pronto.');
     } catch (err) {
       setFormResult(form, 'error', err.message || 'Error enviando el formulario.');
