@@ -24,7 +24,7 @@ SMTP_USER=usuario_smtp
 SMTP_PASS=clave_smtp
 MAIL_FROM=web@inforce-seguridad.com.ar
 MAIL_TO=web@inforce-seguridad.com.ar
-ALLOWED_ORIGINS=https://tu-sitio.netlify.app,https://tudominio.com,http://localhost:3000,http://localhost:8888
+ALLOWED_ORIGINS=https://glisten-limpieza.netlify.app,https://tudominio.com,http://localhost:3000,http://localhost:8888
 MAIL_TO_ENCRYPTED=
 MAIL_TO_KEY=
 MIN_FILL_TIME_MS=1500
@@ -35,7 +35,7 @@ MAX_CV_SIZE_BYTES=2097152
 
 Notas:
 - Usar `MAIL_TO` o bien `MAIL_TO_ENCRYPTED + MAIL_TO_KEY`.
-- `ALLOWED_ORIGINS` debe ser una lista explicita separada por comas.
+- `ALLOWED_ORIGINS` debe ser una lista explicita separada por comas. Puede cargarse con o sin slash final.
 - `MAX_CV_SIZE_BYTES` controla el limite en local y en Netlify.
 
 ## Deploy en Netlify

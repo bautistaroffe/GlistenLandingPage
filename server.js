@@ -52,19 +52,23 @@ Object.entries(ROUTES).forEach(([route, file]) => {
 function parseAllowedOrigins() {
   return String(process.env.ALLOWED_ORIGINS || '')
     .split(',')
-    .map((origin) => origin.trim())
+    .map((origin) => normalizeOrigin(origin))
     .filter(Boolean);
 }
 
+function normalizeOrigin(value) {
+  return String(value || '').trim().replace(/\/+$/, '');
+}
+
 function getRequestOrigin(req) {
-  const origin = String(req.get('origin') || '').trim();
+  const origin = normalizeOrigin(req.get('origin'));
   if (origin) return origin;
 
   const referer = String(req.get('referer') || '').trim();
   if (!referer) return '';
 
   try {
-    return new URL(referer).origin;
+    return normalizeOrigin(new URL(referer).origin);
   } catch {
     return '';
   }

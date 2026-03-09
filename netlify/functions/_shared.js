@@ -23,8 +23,12 @@ const ALLOWED_CV_EXTENSIONS = new Set(['.pdf', '.doc', '.docx']);
 function parseAllowedOrigins() {
   return String(process.env.ALLOWED_ORIGINS || '')
     .split(',')
-    .map((origin) => origin.trim())
+    .map((origin) => normalizeOrigin(origin))
     .filter(Boolean);
+}
+
+function normalizeOrigin(value) {
+  return String(value || '').trim().replace(/\/+$/, '');
 }
 
 function getHeader(headers, name) {
@@ -36,14 +40,14 @@ function getHeader(headers, name) {
 }
 
 function getRequestOrigin(event) {
-  const origin = getHeader(event.headers, 'origin');
+  const origin = normalizeOrigin(getHeader(event.headers, 'origin'));
   if (origin) return origin;
 
   const referer = getHeader(event.headers, 'referer');
   if (!referer) return '';
 
   try {
-    return new URL(referer).origin;
+    return normalizeOrigin(new URL(referer).origin);
   } catch {
     return '';
   }
