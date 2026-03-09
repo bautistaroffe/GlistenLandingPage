@@ -60,7 +60,11 @@ function ensureAntiBotFields(form) {
     form.appendChild(startedAt);
   }
 
-  startedAt.value = String(Date.now());
+  if (!form.dataset.formStartedAt) {
+    form.dataset.formStartedAt = String(Date.now());
+  }
+
+  startedAt.value = form.dataset.formStartedAt;
 }
 
 function syncSelectedFileLabel(form) {
@@ -105,7 +109,13 @@ function validateForm(form) {
 async function sendForm(form) {
   const type = form.dataset.formType;
   const endpoint = `/api/forms/${type}`;
+  ensureAntiBotFields(form);
   const payload = new FormData(form);
+  const honeypotValue = form.querySelector('[name="website"]')?.value || '';
+  const startedAtValue = form.dataset.formStartedAt || form.querySelector('[name="formStartedAt"]')?.value || '';
+
+  payload.set('website', honeypotValue);
+  payload.set('formStartedAt', startedAtValue);
 
   const response = await fetch(endpoint, {
     method: 'POST',
@@ -151,6 +161,7 @@ document.querySelectorAll('.js-form').forEach((form) => {
     try {
       await sendForm(form);
       form.reset();
+      delete form.dataset.formStartedAt;
       ensureAntiBotFields(form);
       syncSelectedFileLabel(form);
       setFormResult(form, 'success', 'Formulario enviado correctamente. Te contactaremos pronto.');
