@@ -250,13 +250,13 @@ function resolveMailTo() {
   }
 }
 
-function validateAntiBot(fields) {
-  const honeypot = sanitizeText(fields.website || fields.company || '', { max: 128 });
+function validateAntiBot(fields, fallbackFields = {}) {
+  const honeypot = sanitizeText(fields.website || fields.company || fallbackFields.website || fallbackFields.company || '', { max: 128 });
   if (honeypot) {
     return { ok: false, status: 400, message: 'Solicitud rechazada.' };
   }
 
-  const formStartedAt = Number(fields.formStartedAt || 0);
+  const formStartedAt = Number(fields.formStartedAt || fallbackFields.formStartedAt || 0);
   if (!Number.isFinite(formStartedAt) || formStartedAt <= 0) {
     return { ok: false, status: 400, message: 'Falta metadata del formulario.' };
   }
@@ -326,7 +326,7 @@ app.post('/api/forms/:type', (req, res) => {
       );
     }
 
-    const antiBot = validateAntiBot(req.body || {});
+    const antiBot = validateAntiBot(req.body || {}, req.query || {});
     if (!antiBot.ok) {
       return sendJson(res, antiBot.status, { ok: false, message: antiBot.message }, req);
     }

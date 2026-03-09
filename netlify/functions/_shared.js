@@ -195,19 +195,20 @@ function parseMultipart(body, contentType) {
 }
 
 function parsePayload(event) {
-  const contentType = String(getHeader(event.headers, 'content-type') || '').toLowerCase();
+  const contentType = String(getHeader(event.headers, 'content-type') || '');
+  const contentTypeLower = contentType.toLowerCase();
   const body = decodeBody(event);
 
-  if (contentType.includes('multipart/form-data')) {
+  if (contentTypeLower.includes('multipart/form-data')) {
     return parseMultipart(body, contentType);
   }
 
-  if (contentType.includes('application/json')) {
+  if (contentTypeLower.includes('application/json')) {
     const parsed = JSON.parse(body.toString('utf8') || '{}');
     return { fields: parsed || {}, file: null };
   }
 
-  if (contentType.includes('application/x-www-form-urlencoded')) {
+  if (contentTypeLower.includes('application/x-www-form-urlencoded')) {
     const params = new URLSearchParams(body.toString('utf8'));
     const fields = {};
     for (const [key, value] of params.entries()) fields[key] = value;
@@ -339,13 +340,13 @@ function resolveMailTo() {
   }
 }
 
-function validateAntiBot(fields) {
-  const honeypot = sanitizeText(fields.website || fields.company || '', { max: 128 });
+function validateAntiBot(fields, fallbackFields = {}) {
+  const honeypot = sanitizeText(fields.website || fields.company || fallbackFields.website || fallbackFields.company || '', { max: 128 });
   if (honeypot) {
     return { ok: false, status: 400, message: 'Solicitud rechazada.' };
   }
 
-  const formStartedAt = Number(fields.formStartedAt || 0);
+  const formStartedAt = Number(fields.formStartedAt || fallbackFields.formStartedAt || 0);
   if (!Number.isFinite(formStartedAt) || formStartedAt <= 0) {
     return { ok: false, status: 400, message: 'Falta metadata del formulario.' };
   }
@@ -419,7 +420,7 @@ async function handleFormSubmission(event, type) {
   }
 
   const fields = parsed.fields || {};
-  const antiBot = validateAntiBot(fields);
+  const antiBot = validateAntiBot(fields, event.queryStringParameters || {});
   if (!antiBot.ok) {
     return response(antiBot.status, { ok: false, message: antiBot.message }, event);
   }

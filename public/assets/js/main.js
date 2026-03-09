@@ -113,11 +113,14 @@ async function sendForm(form) {
   const payload = new FormData(form);
   const honeypotValue = form.querySelector('[name="website"]')?.value || '';
   const startedAtValue = form.dataset.formStartedAt || form.querySelector('[name="formStartedAt"]')?.value || '';
+  const requestUrl = new URL(endpoint, window.location.origin);
 
   payload.set('website', honeypotValue);
   payload.set('formStartedAt', startedAtValue);
+  requestUrl.searchParams.set('formStartedAt', startedAtValue);
+  requestUrl.searchParams.set('website', honeypotValue);
 
-  const response = await fetch(endpoint, {
+  const response = await fetch(requestUrl.pathname + requestUrl.search, {
     method: 'POST',
     body: payload,
   });
