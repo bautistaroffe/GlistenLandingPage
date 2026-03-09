@@ -34,17 +34,19 @@
   html { scroll-behavior: smooth; }
   .input-underline { border: none; border-bottom: 2px solid #e5e7eb; background: transparent; padding: 0.75rem 0; transition: border-color 0.3s ease; }
   .input-underline:focus { outline: none; border-bottom-color: #1a365d; box-shadow: none; }
+  .main-nav a:hover { color: #3b82f6; }
 </style>
 </head>
 <body class="bg-surface-light min-h-screen flex flex-col text-slate-900">
 <header class="sticky top-0 w-full z-50 bg-slate-100/95 border-b border-slate-200">
   <div class="max-w-7xl mx-auto px-6 md:px-12 h-32 flex items-center justify-between">
     <a href="/#top"><img src="/assets/images/logo.png" alt="Glisten" class="h-28 w-auto"/></a>
-    <nav class="hidden md:flex items-center space-x-8">
+    <nav class="main-nav hidden md:flex items-center space-x-8">
       <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/#top">Inicio</a>
       <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/#services">Servicios</a>
       <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/#about">Nosotros</a>
-      <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/trabaja-con-nosotros">Trabaja con nostros</a>
+      <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/contacto">Contacto</a>
+      <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/trabaja-con-nosotros">Trabajá con nosotros</a>
     </nav>
     <a class="hidden md:inline-flex px-6 py-3 bg-primary text-white text-sm font-bold uppercase tracking-wider hover:bg-[#2c4c7c] transition-all transform hover:-translate-y-1 shadow-lg" href="/solicita-presupuesto">Solicita tu presupuesto</a>
   </div>
@@ -56,7 +58,7 @@
 <img alt="Professional cleaning specialist smiling while working" class="absolute inset-0 w-full h-full object-cover" src="/assets/images/solicitatupresupuesto.png"/>
 <div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
 <div class="absolute bottom-10 left-10 text-white p-6 max-w-md hidden lg:block">
-<blockquote class="text-3xl mb-4 italic font-semibold">"Transformamos espacios, mejoramos vidas."</blockquote>
+<blockquote class="text-3xl mb-4 italic font-semibold">"Mejoramos espacios de trabajo."</blockquote>
 <p class="text-sm font-light opacity-90">Solicita una propuesta profesional para tu espacio.</p>
 </div>
 </div>
@@ -72,12 +74,12 @@
 <input class="input-underline w-full placeholder-gray-300 text-lg" id="name" name="fullName" placeholder="Ej. Juan Perez" type="text"/>
 </div>
 <div class="group">
-<label class="block text-sm font-medium text-muted-light mb-1" for="email">Correo Electronico</label>
-<input class="input-underline w-full placeholder-gray-300 text-lg" id="email" name="email" placeholder="juan@ejemplo.com" type="email"/>
+<label class="block text-sm font-medium text-muted-light mb-1" for="email">Correo electrónico</label>
+<input class="input-underline w-full placeholder-gray-300 text-lg" id="email" name="email" placeholder="" type="email"/>
 </div>
 <div class="group">
 <label class="block text-sm font-medium text-muted-light mb-1" for="message">Consulta</label>
-<textarea class="input-underline w-full placeholder-gray-300 text-lg" id="message" name="message" placeholder="Cuentanos que tipo de servicio necesitas."></textarea>
+<textarea class="input-underline w-full placeholder-gray-300 text-lg" id="message" name="message" placeholder="Contanos qué tipo de servicio necesitás."></textarea>
 </div>
 <p class="form-result text-sm" aria-live="polite"></p>
 <div class="pt-6">
@@ -94,13 +96,13 @@
 <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
 <div class="col-span-1 md:col-span-1">
 <a href="/#top"><img src="/assets/images/logo.png" alt="Glisten" class="h-[10.5rem] w-auto mb-6"/></a>
-<p class="text-slate-400 text-sm leading-relaxed mb-6">Elevando el estandar de limpieza profesional. Creamos ambientes puros que inspiran productividad y bienestar.</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">Elevando el estándar de limpieza profesional. Creamos ambientes puros que inspiran productividad y bienestar.</p>
 </div>
 <div>
 <h3 class="text-slate-900 font-bold uppercase tracking-widest mb-6 text-sm">Empresa</h3>
 <ul class="space-y-4 text-sm text-slate-600">
 <li><a class="hover:text-primary transition-colors" href="/#about">Sobre Nosotros</a></li>
-<li><a class="hover:text-primary transition-colors" href="/trabaja-con-nosotros">Trabaja con nostros</a></li>
+<li><a class="hover:text-primary transition-colors" href="/trabaja-con-nosotros">Trabajá con nosotros</a></li>
 <li><a class="hover:text-primary transition-colors" href="/contacto">Contacto</a></li>
 </ul>
 </div>
@@ -108,7 +110,7 @@
 <h3 class="text-slate-900 font-bold uppercase tracking-widest mb-6 text-sm">Servicios</h3>
 <ul class="space-y-4 text-sm text-slate-600">
 <li><a class="hover:text-primary transition-colors" href="/#services">Limpieza de Oficinas</a></li>
-<li><a class="hover:text-primary transition-colors" href="/#services">Clinicas</a></li>
+<li><a class="hover:text-primary transition-colors" href="/#services">Clínicas</a></li>
 <li><a class="hover:text-primary transition-colors" href="/#services">Locales Comerciales</a></li>
 <li><a class="hover:text-primary transition-colors" href="/solicita-presupuesto">Solicita tu presupuesto</a></li>
 </ul>
@@ -116,19 +118,12 @@
 <div>
 <h3 class="text-slate-900 font-bold uppercase tracking-widest mb-6 text-sm">Contacto</h3>
 <ul class="space-y-4 text-sm text-slate-600">
-<li><span>CABA, Buenos Aires, Argentina</span></li>
-<li><span>+54 11 4567 8900</span></li>
-<li><span>contacto@glisten.com</span></li>
+<li><span>Av. Las Acacias 392 Piso 1</span></li>
 </ul>
 </div>
 </div>
 <div class="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
-<p>© 2026 Glisten Services. Todos los derechos reservados.</p>
-<div class="flex space-x-6 mt-4 md:mt-0">
-<a class="hover:text-white transition-colors" href="#">Privacidad</a>
-<a class="hover:text-white transition-colors" href="#">Terminos</a>
-<a class="hover:text-white transition-colors" href="#">Cookies</a>
-</div>
+<p>© 2026 Glisten. Todos los derechos reservados.</p>
 </div>
 </div>
 </footer>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Glisten - Excelencia en Limpieza</title>
+<title>Glisten</title>
 <script src="/assets/js/colors.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -37,6 +37,10 @@
   .service-column .service-description { opacity: 1; transform: translateY(0); transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1); }
   .service-column:hover .service-bg { transform: scale(1.08); }
   .service-bg { transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1); }
+  .before-after-card img { transition: opacity 0.45s ease, transform 0.7s ease; }
+  .before-after-card:hover .after-image { opacity: 1; }
+  .before-after-card:hover .before-image { transform: scale(1.03); }
+  .before-after-card:hover .after-image { transform: scale(1.02); }
   #main-header { transition: background-color 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
   #main-header.is-glass {
     background: rgba(250, 249, 246, 0.65);
@@ -59,7 +63,8 @@
 <a class="text-sm font-medium text-slate-100 hover:text-primary transition-colors uppercase tracking-wider" href="/#top">Inicio</a>
 <a class="text-sm font-medium text-slate-100 hover:text-primary transition-colors uppercase tracking-wider" href="/#services">Servicios</a>
 <a class="text-sm font-medium text-slate-100 hover:text-primary transition-colors uppercase tracking-wider" href="/#about">Nosotros</a>
-<a class="text-sm font-medium text-slate-100 hover:text-primary transition-colors uppercase tracking-wider" href="/trabaja-con-nosotros">Trabaja con nostros</a>
+<a class="text-sm font-medium text-slate-100 hover:text-primary transition-colors uppercase tracking-wider" href="/contacto">Contacto</a>
+<a class="text-sm font-medium text-slate-100 hover:text-primary transition-colors uppercase tracking-wider" href="/trabaja-con-nosotros">Trabajá con nosotros</a>
 </nav>
 <a class="hidden md:inline-flex px-6 py-3 bg-primary text-white text-sm font-bold uppercase tracking-wider hover:bg-teal-700 transition-all transform hover:-translate-y-1 shadow-lg" href="/solicita-presupuesto">
   Solicita tu presupuesto
@@ -78,7 +83,7 @@
   Excelencia en <br/>Limpieza Profesional
 </h1>
 <p class="text-lg md:text-xl text-slate-100 mb-10 max-w-2xl mx-auto font-light">
-  Redefinimos la pureza de tus espacios con estandares de calidad inigualables y atencion meticulosa al detalle.
+  Redefinimos la pureza de tus espacios con estándares de calidad inigualables y atención meticulosa al detalle.
 </p>
 <div class="flex flex-col sm:flex-row gap-4 justify-center">
 <a class="px-8 py-4 bg-primary text-white font-bold uppercase tracking-wider hover:bg-teal-700 transition-all transform hover:-translate-y-1 shadow-xl" href="/solicita-presupuesto">
@@ -117,16 +122,16 @@
 </div>
 <div class="group service-column relative flex-1 overflow-hidden border-r border-white/10 cursor-pointer">
 <div class="absolute inset-0 z-0">
-<img alt="Clinicas" class="service-bg w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL-mZ6Gi06W0kPXky9w-TQAe3XMbOkrVBXoLJeg7YsOVf6yO001DtT3sBsnlCS_pJNsli9YTsTpxKwx8nq1YzC7c21pQ9ei8iL8X0rM8NEQAjCosrFLC-LzLKrtZ_GDQ3yZFHAX6HOh5VY0tCJR5HPQ-JkEIdSmVqOffgETYiWP4ejscoXeibQngCljiIgGcGJCYpgCmVayKu0q0BSJ5rIX41bOGOubk096mPInftDQo9oxeSPGKSQfeFdK-DgejHHX4LJodWhbbZv"/>
+<img alt="Clínicas" class="service-bg w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL-mZ6Gi06W0kPXky9w-TQAe3XMbOkrVBXoLJeg7YsOVf6yO001DtT3sBsnlCS_pJNsli9YTsTpxKwx8nq1YzC7c21pQ9ei8iL8X0rM8NEQAjCosrFLC-LzLKrtZ_GDQ3yZFHAX6HOh5VY0tCJR5HPQ-JkEIdSmVqOffgETYiWP4ejscoXeibQngCljiIgGcGJCYpgCmVayKu0q0BSJ5rIX41bOGOubk096mPInftDQo9oxeSPGKSQfeFdK-DgejHHX4LJodWhbbZv"/>
 <div class="absolute inset-0 bg-secondary/40 group-hover:bg-secondary/60 transition-colors duration-500"></div>
 </div>
 <div class="relative z-10 h-full flex flex-col items-center justify-center px-8 text-center text-white">
 <div class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center mb-6 border border-white/20">
 <span class="material-symbols-outlined text-3xl">local_hospital</span>
 </div>
-<h2 class="text-3xl font-bold mb-4 tracking-tight">Clinicas</h2>
+<h2 class="text-3xl font-bold mb-4 tracking-tight">Clínicas</h2>
 <div class="service-description max-w-xs">
-<p class="text-slate-100 text-lg leading-relaxed mb-6">Servicios de limpieza para clinicas con foco en confort, orden y confianza para pacientes, profesionales y areas de espera.</p>
+<p class="text-slate-100 text-lg leading-relaxed mb-6">Servicios de limpieza para clínicas con foco en confort, orden y confianza para pacientes, profesionales y áreas de espera.</p>
 </div>
 </div>
 </div>
@@ -152,15 +157,17 @@
 <div class="max-w-7xl mx-auto px-6 md:px-12">
 <div class="flex flex-col lg:flex-row items-center gap-16">
 <div class="w-full lg:w-1/2 relative">
-<div class="aspect-[4/5] overflow-hidden bg-slate-700 relative z-10">
-<img alt="Sobre nosotros" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="/assets/images/imagencomprometidos-con-la-perfeccion.jpg"/>
+<div class="before-after-card aspect-[4/5] overflow-hidden bg-slate-700 relative z-10 group cursor-pointer">
+<img alt="Espacio antes de la limpieza" class="before-image w-full h-full object-cover" src="/assets/images/imagen_prueba_sucia.png"/>
+<img alt="Espacio después de la limpieza" class="after-image absolute inset-0 w-full h-full object-cover opacity-0" src="/assets/images/imagen_prueba_limpia.jpg"/>
+<!-- Imagen original conservada por ahora: /assets/images/imagencomprometidos-con-la-perfeccion.jpg -->
 </div>
 <div class="absolute -bottom-6 -left-6 w-full h-full border-2 border-primary z-0 hidden md:block"></div>
 </div>
 <div class="w-full lg:w-1/2">
 <span class="text-xs font-bold tracking-[0.2em] uppercase text-primary mb-4 block">Sobre Nosotros</span>
-<h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">Comprometidos con<br/>la Perfeccion</h2>
-<p class="text-slate-600 mb-8 text-lg leading-relaxed">En Glisten, no solo limpiamos; restauramos el brillo original de tus espacios. Nuestro equipo de profesionales certificados utiliza tecnologia de vanguardia y productos ecologicos para garantizar un entorno impecable.</p>
+<h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">Comprometidos con<br/>la Perfección</h2>
+<p class="text-slate-600 mb-8 text-lg leading-relaxed">En Glisten, no solo limpiamos; restauramos el brillo original de tus espacios. Nuestro equipo de profesionales certificados utiliza tecnología de vanguardia y productos ecológicos para garantizar un entorno impecable.</p>
 </div>
 </div>
 </div>
@@ -180,7 +187,7 @@
 </div>
 <div class="space-y-2">
 <label class="text-sm font-semibold text-slate-700 uppercase tracking-wide" for="quote-email">Email</label>
-<input class="w-full border-0 border-b-2 border-slate-300 focus:border-primary focus:ring-0 px-0 py-3 transition-colors bg-transparent placeholder-slate-400 text-slate-900" id="quote-email" name="email" placeholder="juan@ejemplo.com" type="email"/>
+<input class="w-full border-0 border-b-2 border-slate-300 focus:border-primary focus:ring-0 px-0 py-3 transition-colors bg-transparent placeholder-slate-400 text-slate-900" id="quote-email" name="email" placeholder="" type="email"/>
 </div>
 <div class="space-y-2">
 <label class="text-sm font-semibold text-slate-700 uppercase tracking-wide" for="quote-message">Consulta</label>
@@ -197,8 +204,8 @@
 <section class="py-24 bg-[#FAF9F6] border-t border-slate-200" id="work-home">
 <div class="max-w-4xl mx-auto px-6 md:px-12">
 <div class="text-center mb-16">
-<span class="text-xs font-bold tracking-[0.2em] uppercase text-slate-400 mb-4 block">Trabaja con nostros</span>
-<h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Trabaja con nostros</h2>
+<span class="text-xs font-bold tracking-[0.2em] uppercase text-slate-400 mb-4 block">Trabajá con nosotros</span>
+<h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Trabajá con nosotros</h2>
 <p class="text-slate-600">Tu consulta no molesta</p>
 </div>
 <form class="space-y-8 js-form" data-form-type="job" enctype="multipart/form-data">
@@ -209,22 +216,23 @@
 </div>
 <div class="space-y-2">
 <label class="text-sm font-semibold text-slate-700 uppercase tracking-wide" for="work-email">Email</label>
-<input class="w-full border-0 border-b-2 border-slate-300 focus:border-primary focus:ring-0 px-0 py-3 transition-colors bg-transparent placeholder-slate-400 text-slate-900" id="work-email" name="email" placeholder="juan@ejemplo.com" type="email"/>
+<input class="w-full border-0 border-b-2 border-slate-300 focus:border-primary focus:ring-0 px-0 py-3 transition-colors bg-transparent placeholder-slate-400 text-slate-900" id="work-email" name="email" placeholder="" type="email"/>
 </div>
 </div>
 <div class="space-y-2">
-<label class="text-sm font-semibold text-slate-700 uppercase tracking-wide" for="work-phone">Telefono</label>
-<input class="w-full border-0 border-b-2 border-slate-300 focus:border-primary focus:ring-0 px-0 py-3 transition-colors bg-transparent placeholder-slate-400 text-slate-900" id="work-phone" name="phone" placeholder="+54 11 1234 5678" type="tel"/>
+<label class="text-sm font-semibold text-slate-700 uppercase tracking-wide" for="work-phone">Teléfono</label>
+<input class="w-full border-0 border-b-2 border-slate-300 focus:border-primary focus:ring-0 px-0 py-3 transition-colors bg-transparent placeholder-slate-400 text-slate-900" id="work-phone" name="phone" placeholder="" type="tel"/>
 </div>
 <div class="space-y-4 pt-4">
 <label class="text-sm font-semibold text-slate-700 uppercase tracking-wide block">Subir CV</label>
 <div class="relative w-full group">
-<input class="hidden" id="home_cv_upload" name="cv" type="file"/>
+<input class="sr-only" id="home_cv_upload" name="cv" type="file"/>
 <label class="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:bg-white hover:border-primary transition-all duration-300 bg-white" for="home_cv_upload">
 <div class="flex flex-col items-center justify-center pt-5 pb-6">
 <span class="material-symbols-outlined text-primary text-5xl mb-2 group-hover:scale-110 transition-transform duration-300">upload_file</span>
 <p class="mb-1 text-sm text-primary font-medium"><span class="font-semibold underline">Sube un archivo</span> o arrastra y suelta</p>
-<p class="text-xs text-gray-500">PDF/DOC/DOCX, maximo 2 paginas, 2MB.</p>
+<p class="text-xs text-gray-500">PDF/DOC/DOCX, máximo 2 páginas, 2MB.</p>
+<p class="mt-2 text-xs text-slate-600" data-file-feedback>Ningun archivo seleccionado.</p>
 </div>
 </label>
 </div>
@@ -243,13 +251,13 @@
 <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
 <div class="col-span-1 md:col-span-1">
 <a href="/#top"><img src="/assets/images/logo.png" alt="Glisten" class="h-[10.5rem] w-auto mb-6"/></a>
-<p class="text-slate-400 text-sm leading-relaxed mb-6">Elevando el estandar de limpieza profesional. Creamos ambientes puros que inspiran productividad y bienestar.</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">Elevando el estándar de limpieza profesional. Creamos ambientes puros que inspiran productividad y bienestar.</p>
 </div>
 <div>
 <h3 class="text-white font-bold uppercase tracking-widest mb-6 text-sm">Empresa</h3>
 <ul class="space-y-4 text-sm text-slate-400">
 <li><a class="hover:text-primary transition-colors" href="/#about">Sobre Nosotros</a></li>
-<li><a class="hover:text-primary transition-colors" href="/trabaja-con-nosotros">Trabaja con nostros</a></li>
+<li><a class="hover:text-primary transition-colors" href="/trabaja-con-nosotros">Trabajá con nosotros</a></li>
 <li><a class="hover:text-primary transition-colors" href="/contacto">Contacto</a></li>
 </ul>
 </div>
@@ -265,9 +273,7 @@
 <div>
 <h3 class="text-white font-bold uppercase tracking-widest mb-6 text-sm">Contacto</h3>
 <ul class="space-y-4 text-sm text-slate-400">
-<li><span>Cordoba, Argentina</span></li>
-<li><span>+54 11 4567 8900</span></li>
-<li><span>contacto@glisten.com</span></li>
+<li><span>Av. Las Acacias 392 Piso 1</span></li>
 </ul>
 </div>
 </div>
@@ -303,9 +309,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-

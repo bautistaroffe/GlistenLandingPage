@@ -30,6 +30,17 @@ function ensureAntiBotFields(form) {
   startedAt.value = String(Date.now());
 }
 
+function syncSelectedFileLabel(form) {
+  const fileInput = form.querySelector('input[type="file"][name="cv"]');
+  if (!fileInput) return;
+
+  const feedbackTarget = form.querySelector('[data-file-feedback]');
+  if (!feedbackTarget) return;
+
+  const fileName = fileInput.files && fileInput.files[0] ? fileInput.files[0].name : 'Ningun archivo seleccionado.';
+  feedbackTarget.textContent = fileName;
+}
+
 function emailIsValid(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || '').trim());
 }
@@ -45,6 +56,9 @@ function validateForm(form) {
   if (type === 'job') {
     const phone = form.querySelector('[name="phone"]')?.value?.trim() || '';
     if (!phone) return 'El telefono es obligatorio.';
+
+    const cv = form.querySelector('[name="cv"]');
+    if (!cv || !cv.files || !cv.files[0]) return 'Adjunta tu CV antes de enviar.';
   }
 
   if (type === 'quote') {
@@ -71,7 +85,16 @@ async function sendForm(form) {
 }
 
 document.querySelectorAll('.js-form').forEach((form) => {
+  form.setAttribute('novalidate', 'novalidate');
   ensureAntiBotFields(form);
+  syncSelectedFileLabel(form);
+
+  const fileInput = form.querySelector('input[type="file"][name="cv"]');
+  if (fileInput) {
+    fileInput.addEventListener('change', () => {
+      syncSelectedFileLabel(form);
+    });
+  }
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -96,6 +119,7 @@ document.querySelectorAll('.js-form').forEach((form) => {
       await sendForm(form);
       form.reset();
       ensureAntiBotFields(form);
+      syncSelectedFileLabel(form);
       setFormResult(form, 'success', 'Formulario enviado correctamente. Te contactaremos pronto.');
     } catch (err) {
       setFormResult(form, 'error', err.message || 'Error enviando el formulario.');

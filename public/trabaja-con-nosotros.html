@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Glisten Careers - Trabaja con nostros</title>
+<title>Glisten | Trabaja con nosotros</title>
 <script src="/assets/js/colors.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -42,17 +42,19 @@
   html { scroll-behavior: smooth; }
   .glass-card { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.6); }
   .glass-input { background: rgba(255, 255, 255, 0.5); border: 1px solid rgba(255, 255, 255, 0.3); }
+  .main-nav a:hover { color: #0d9488; }
 </style>
 </head>
 <body class="bg-background-light min-h-screen text-slate-900">
 <header class="sticky top-0 w-full z-50 bg-slate-100/95 border-b border-slate-200">
   <div class="max-w-7xl mx-auto px-6 md:px-12 h-32 flex items-center justify-between">
     <a href="/#top"><img src="/assets/images/logo.png" alt="Glisten" class="h-28 w-auto"/></a>
-    <nav class="hidden md:flex items-center space-x-8">
+    <nav class="main-nav hidden md:flex items-center space-x-8">
       <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/#top">Inicio</a>
       <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/#services">Servicios</a>
       <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/#about">Nosotros</a>
-      <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/trabaja-con-nosotros">Trabaja con nostros</a>
+      <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/contacto">Contacto</a>
+      <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/trabaja-con-nosotros">Trabajá con nosotros</a>
     </nav>
     <a class="hidden md:inline-flex px-6 py-3 bg-primary text-white text-sm font-bold uppercase tracking-wider hover:bg-teal-700 transition-all transform hover:-translate-y-1 shadow-lg" href="/solicita-presupuesto">Solicita tu presupuesto</a>
   </div>
@@ -61,13 +63,13 @@
 <main>
 <section class="relative min-h-screen flex items-center justify-center p-4 overflow-hidden">
 <div class="absolute inset-0 z-0">
-<img alt="Fondo trabaja con nostros" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC88uLoJ7RUz2Kyw_QjzYXdoat7rriI5v-iXETxB2mNiXhhve7PzN_3AHefE7urwRHwzy5Vf6n8I0K7LpMmurary5yN6iWTE3j6-xqUOMHHgpACcseSi62nqnCCPwAZZzUcatfwro61yiXa-lCX-acxGc0yYR4JfagXGyVGNnXFqonkyhAwIjV3s_hCdS_Y1RO-KgFZY-LOLLaHsZv0zVn0_-y8UP12ebEZwkgZgZQ36aSnMRxpT2n074EGWUlAKDGTDLkyusjYe5bH"/>
+<img alt="Fondo trabajá con nosotros" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC88uLoJ7RUz2Kyw_QjzYXdoat7rriI5v-iXETxB2mNiXhhve7PzN_3AHefE7urwRHwzy5Vf6n8I0K7LpMmurary5yN6iWTE3j6-xqUOMHHgpACcseSi62nqnCCPwAZZzUcatfwro61yiXa-lCX-acxGc0yYR4JfagXGyVGNnXFqonkyhAwIjV3s_hCdS_Y1RO-KgFZY-LOLLaHsZv0zVn0_-y8UP12ebEZwkgZgZQ36aSnMRxpT2n074EGWUlAKDGTDLkyusjYe5bH"/>
 <div class="absolute inset-0 bg-black/30"></div>
 </div>
 <div class="relative z-10 w-full max-w-2xl glass-card rounded-2xl shadow-2xl p-8 md:p-12 mt-24 mb-12">
 <div class="text-center mb-10">
-<h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 tracking-tight">Trabaja con nostros</h1>
-<p class="text-gray-600 text-lg leading-relaxed max-w-lg mx-auto">Se parte de Glisten. Estamos transformando la limpieza profesional.</p>
+<h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 tracking-tight">Trabajá con nosotros</h1>
+<p class="text-gray-600 text-lg leading-relaxed max-w-lg mx-auto">Sé parte de Glisten. Estamos transformando la limpieza profesional.</p>
 </div>
 <form class="space-y-6 js-form" data-form-type="job" enctype="multipart/form-data" method="POST">
 <div>
@@ -76,30 +78,31 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div>
-<label class="block text-sm font-semibold text-gray-700 mb-2" for="email">Correo Electronico</label>
-<input class="w-full px-4 py-3 rounded-xl glass-input placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" id="email" name="email" placeholder="juan@ejemplo.com" type="email"/>
+<label class="block text-sm font-semibold text-gray-700 mb-2" for="email">Correo electrónico</label>
+<input class="w-full px-4 py-3 rounded-xl glass-input placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" id="email" name="email" placeholder="" type="email"/>
 </div>
 <div>
-<label class="block text-sm font-semibold text-gray-700 mb-2" for="phone">Telefono de Contacto</label>
-<input class="w-full px-4 py-3 rounded-xl glass-input placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" id="phone" name="phone" placeholder="+54 000 000 000" type="tel"/>
+<label class="block text-sm font-semibold text-gray-700 mb-2" for="phone">Teléfono de contacto</label>
+<input class="w-full px-4 py-3 rounded-xl glass-input placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" id="phone" name="phone" placeholder="" type="tel"/>
 </div>
 </div>
 <div>
 <label class="block text-sm font-semibold text-gray-700 mb-2">Adjunta tu CV</label>
 <div class="relative w-full group">
-<input class="hidden" id="cv_upload" name="cv" type="file"/>
+<input class="sr-only" id="cv_upload" name="cv" type="file"/>
 <label class="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:bg-white/40 hover:border-primary transition-all duration-300 glass-input" for="cv_upload">
 <div class="flex flex-col items-center justify-center pt-5 pb-6">
 <span class="material-icons text-primary text-5xl mb-2 group-hover:scale-110 transition-transform duration-300">cloud_upload</span>
 <p class="mb-1 text-sm text-primary font-medium"><span class="font-semibold underline">Sube un archivo</span> o arrastra y suelta</p>
-<p class="text-xs text-gray-500">PDF/DOC/DOCX, maximo 2MB.</p>
+<p class="text-xs text-gray-500">PDF/DOC/DOCX, máximo 2MB.</p>
+<p class="mt-2 text-xs text-slate-600" data-file-feedback>Ningun archivo seleccionado.</p>
 </div>
 </label>
 </div>
 </div>
 <p class="form-result text-sm" aria-live="polite"></p>
 <div class="pt-4">
-<button class="w-full bg-primary hover:bg-teal-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transform transition hover:-translate-y-0.5 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-primary/50 text-lg" type="submit">Enviar Postulacion</button>
+<button class="w-full bg-primary hover:bg-teal-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transform transition hover:-translate-y-0.5 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-primary/50 text-lg" type="submit">Enviar postulación</button>
 </div>
 </form>
 </div>
@@ -111,13 +114,13 @@
 <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
 <div class="col-span-1 md:col-span-1">
 <a href="/#top"><img src="/assets/images/logo.png" alt="Glisten" class="h-[10.5rem] w-auto mb-6"/></a>
-<p class="text-slate-400 text-sm leading-relaxed mb-6">Elevando el estandar de limpieza profesional. Creamos ambientes puros que inspiran productividad y bienestar.</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">Elevando el estándar de limpieza profesional. Creamos ambientes puros que inspiran productividad y bienestar.</p>
 </div>
 <div>
 <h3 class="text-slate-900 font-bold uppercase tracking-widest mb-6 text-sm">Empresa</h3>
 <ul class="space-y-4 text-sm text-slate-600">
 <li><a class="hover:text-primary transition-colors" href="/#about">Sobre Nosotros</a></li>
-<li><a class="hover:text-primary transition-colors" href="/trabaja-con-nosotros">Trabaja con nostros</a></li>
+<li><a class="hover:text-primary transition-colors" href="/trabaja-con-nosotros">Trabajá con nosotros</a></li>
 <li><a class="hover:text-primary transition-colors" href="/contacto">Contacto</a></li>
 </ul>
 </div>
@@ -125,7 +128,7 @@
 <h3 class="text-slate-900 font-bold uppercase tracking-widest mb-6 text-sm">Servicios</h3>
 <ul class="space-y-4 text-sm text-slate-600">
 <li><a class="hover:text-primary transition-colors" href="/#services">Limpieza de Oficinas</a></li>
-<li><a class="hover:text-primary transition-colors" href="/#services">Clinicas</a></li>
+<li><a class="hover:text-primary transition-colors" href="/#services">Clínicas</a></li>
 <li><a class="hover:text-primary transition-colors" href="/#services">Locales Comerciales</a></li>
 <li><a class="hover:text-primary transition-colors" href="/solicita-presupuesto">Solicita tu presupuesto</a></li>
 </ul>
@@ -133,19 +136,12 @@
 <div>
 <h3 class="text-slate-900 font-bold uppercase tracking-widest mb-6 text-sm">Contacto</h3>
 <ul class="space-y-4 text-sm text-slate-600">
-<li><span>CABA, Buenos Aires, Argentina</span></li>
-<li><span>+54 11 4567 8900</span></li>
-<li><span>contacto@glisten.com</span></li>
+<li><span>Av. Las Acacias 392 Piso 1</span></li>
 </ul>
 </div>
 </div>
 <div class="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
-<p>© 2026 Glisten Services. Todos los derechos reservados.</p>
-<div class="flex space-x-6 mt-4 md:mt-0">
-<a class="hover:text-white transition-colors" href="#">Privacidad</a>
-<a class="hover:text-white transition-colors" href="#">Terminos</a>
-<a class="hover:text-white transition-colors" href="#">Cookies</a>
-</div>
+<p>© 2026 Glisten. Todos los derechos reservados.</p>
 </div>
 </div>
 </footer>

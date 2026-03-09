@@ -4,6 +4,7 @@ const express = require('express');
 const multer = require('multer');
 const nodemailer = require('nodemailer');
 const path = require('path');
+const crypto = require('crypto');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -58,9 +59,55 @@ function buildTransporter() {
   });
 }
 
+function decryptMailTo(encryptedValue, key) {
+  const payload = String(encryptedValue || '').trim();
+  const secret = String(key || '');
+  if (!payload || !secret) return '';
+
+  const keyBuffer = crypto.createHash('sha256').update(secret).digest();
+  const split = payload.split(':');
+
+  if (split.length === 3) {
+    const [ivPart, tagPart, dataPart] = split;
+    const iv = Buffer.from(ivPart, /^[0-9a-f]+$/i.test(ivPart) ? 'hex' : 'base64');
+    const tag = Buffer.from(tagPart, /^[0-9a-f]+$/i.test(tagPart) ? 'hex' : 'base64');
+    const encrypted = Buffer.from(dataPart, /^[0-9a-f]+$/i.test(dataPart) ? 'hex' : 'base64');
+
+    const decipher = crypto.createDecipheriv('aes-256-gcm', keyBuffer, iv);
+    decipher.setAuthTag(tag);
+    const decrypted = Buffer.concat([decipher.update(encrypted), decipher.final()]);
+    return decrypted.toString('utf8').trim();
+  }
+
+  const packed = Buffer.from(payload, 'base64');
+  if (packed.length > 28) {
+    const iv = packed.subarray(0, 12);
+    const tag = packed.subarray(12, 28);
+    const encrypted = packed.subarray(28);
+
+    const decipher = crypto.createDecipheriv('aes-256-gcm', keyBuffer, iv);
+    decipher.setAuthTag(tag);
+    const decrypted = Buffer.concat([decipher.update(encrypted), decipher.final()]);
+    return decrypted.toString('utf8').trim();
+  }
+
+  return '';
+}
+
+function resolveMailTo() {
+  const plain = String(process.env.MAIL_TO || '').trim();
+  if (plain) return plain;
+
+  try {
+    return decryptMailTo(process.env.MAIL_TO_ENCRYPTED, process.env.MAIL_TO_KEY);
+  } catch {
+    return '';
+  }
+}
+
 app.post('/api/forms/:type', upload.single('cv'), async (req, res) => {
   const { type } = req.params;
-  const toEmail = process.env.FORMS_TO_EMAIL;
+  const toEmail = resolveMailTo();
 
   const fullName = String(req.body.fullName || '').trim();
   const email = String(req.body.email || '').trim();
@@ -119,7 +166,7 @@ app.post('/api/forms/:type', upload.single('cv'), async (req, res) => {
     if (!toEmail) {
       return res.status(500).json({
         ok: false,
-        message: 'No se configuro FORMS_TO_EMAIL en el servidor.',
+        message: 'No se configuro MAIL_TO o MAIL_TO_ENCRYPTED en el servidor.',
       });
     }
 
@@ -133,7 +180,7 @@ app.post('/api/forms/:type', upload.single('cv'), async (req, res) => {
     }
 
     await transporter.sendMail({
-      from: process.env.FORMS_FROM_EMAIL || process.env.SMTP_USER,
+      from: process.env.MAIL_FROM || process.env.SMTP_USER,
       to: toEmail,
       replyTo: email,
       subject,
