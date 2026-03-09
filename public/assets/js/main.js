@@ -5,6 +5,39 @@ function setFormResult(form, type, message) {
   result.textContent = message;
 }
 
+function initMobileMenu() {
+  const button = document.querySelector('[data-mobile-menu-button]');
+  const menu = document.querySelector('[data-mobile-menu]');
+  if (!button || !menu) return;
+
+  function closeMenu() {
+    menu.classList.add('hidden');
+    button.setAttribute('aria-expanded', 'false');
+  }
+
+  function openMenu() {
+    menu.classList.remove('hidden');
+    button.setAttribute('aria-expanded', 'true');
+  }
+
+  button.addEventListener('click', () => {
+    const isOpen = button.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      closeMenu();
+      return;
+    }
+    openMenu();
+  });
+
+  menu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) closeMenu();
+  });
+}
+
 function ensureAntiBotFields(form) {
   let honeypot = form.querySelector('[name="website"]');
   if (!honeypot) {
@@ -131,3 +164,5 @@ document.querySelectorAll('.js-form').forEach((form) => {
     }
   });
 });
+
+initMobileMenu();

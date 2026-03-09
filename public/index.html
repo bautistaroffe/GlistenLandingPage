@@ -4,6 +4,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Glisten</title>
+<link href="/assets/images/logo.png" rel="icon" type="image/png"/>
+<link href="/assets/images/logo.png" rel="apple-touch-icon"/>
+<meta content="Glisten" property="og:title"/>
+<meta content="/assets/images/logo.png" property="og:image"/>
 <script src="/assets/js/colors.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -37,10 +41,6 @@
   .service-column .service-description { opacity: 1; transform: translateY(0); transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1); }
   .service-column:hover .service-bg { transform: scale(1.08); }
   .service-bg { transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1); }
-  .before-after-card img { transition: opacity 0.45s ease, transform 0.7s ease; }
-  .before-after-card:hover .after-image { opacity: 1; }
-  .before-after-card:hover .before-image { transform: scale(1.03); }
-  .before-after-card:hover .after-image { transform: scale(1.02); }
   #main-header { transition: background-color 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
   #main-header.is-glass {
     background: rgba(250, 249, 246, 0.65);
@@ -66,9 +66,23 @@
 <a class="text-sm font-medium text-slate-100 hover:text-primary transition-colors uppercase tracking-wider" href="/contacto">Contacto</a>
 <a class="text-sm font-medium text-slate-100 hover:text-primary transition-colors uppercase tracking-wider" href="/trabaja-con-nosotros">Trabajá con nosotros</a>
 </nav>
-<a class="hidden md:inline-flex px-6 py-3 bg-primary text-white text-sm font-bold uppercase tracking-wider hover:bg-teal-700 transition-all transform hover:-translate-y-1 shadow-lg" href="/solicita-presupuesto">
+<div class="flex items-center gap-3">
+<a class="inline-flex px-4 md:px-6 py-2.5 md:py-3 bg-primary text-white text-xs md:text-sm font-bold uppercase tracking-wider hover:bg-teal-700 transition-all transform hover:-translate-y-1 shadow-lg" href="/solicita-presupuesto">
   Solicita tu presupuesto
 </a>
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menu" class="md:hidden inline-flex items-center justify-center w-11 h-11 border border-white/20 text-white hover:text-primary hover:border-primary transition-colors" data-mobile-menu-button type="button">
+  <span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</div>
+<div class="hidden md:hidden border-t border-slate-200 bg-[#FAF9F6]" data-mobile-menu id="mobile-menu">
+  <nav class="px-6 py-5 flex flex-col gap-4">
+    <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/#top">Inicio</a>
+    <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/#services">Servicios</a>
+    <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/#about">Nosotros</a>
+    <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/contacto">Contacto</a>
+    <a class="text-sm font-medium text-slate-700 hover:text-primary transition-colors uppercase tracking-wider" href="/trabaja-con-nosotros">Trabajá con nosotros</a>
+  </nav>
 </div>
 </header>
 
@@ -157,10 +171,8 @@
 <div class="max-w-7xl mx-auto px-6 md:px-12">
 <div class="flex flex-col lg:flex-row items-center gap-16">
 <div class="w-full lg:w-1/2 relative">
-<div class="before-after-card aspect-[4/5] overflow-hidden bg-slate-700 relative z-10 group cursor-pointer">
-<img alt="Espacio antes de la limpieza" class="before-image w-full h-full object-cover" src="/assets/images/imagen_prueba_sucia.png"/>
-<img alt="Espacio después de la limpieza" class="after-image absolute inset-0 w-full h-full object-cover opacity-0" src="/assets/images/imagen_prueba_limpia.jpg"/>
-<!-- Imagen original conservada por ahora: /assets/images/imagencomprometidos-con-la-perfeccion.jpg -->
+<div class="aspect-[4/5] overflow-hidden bg-slate-700 relative z-10">
+<img alt="Sobre nosotros" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="/assets/images/imagencomprometidos-con-la-perfeccion.jpg"/>
 </div>
 <div class="absolute -bottom-6 -left-6 w-full h-full border-2 border-primary z-0 hidden md:block"></div>
 </div>

@@ -283,18 +283,29 @@ function decryptMailTo(encryptedValue, key) {
 
   const keyBuffer = crypto.createHash('sha256').update(secret).digest();
 
-  const split = payload.split(':');
-  if (split.length === 3) {
-    const [ivPart, tagPart, dataPart] = split;
+  function decodeFlexible(value) {
+    return Buffer.from(value, /^[0-9a-f]+$/i.test(value) ? 'hex' : 'base64');
+  }
 
-    const iv = Buffer.from(ivPart, /^[0-9a-f]+$/i.test(ivPart) ? 'hex' : 'base64');
-    const tag = Buffer.from(tagPart, /^[0-9a-f]+$/i.test(tagPart) ? 'hex' : 'base64');
-    const encrypted = Buffer.from(dataPart, /^[0-9a-f]+$/i.test(dataPart) ? 'hex' : 'base64');
-
+  function tryDecrypt(iv, encrypted, tag) {
     const decipher = crypto.createDecipheriv('aes-256-gcm', keyBuffer, iv);
     decipher.setAuthTag(tag);
     const decrypted = Buffer.concat([decipher.update(encrypted), decipher.final()]);
     return decrypted.toString('utf8').trim();
+  }
+
+  const split = payload.split(':');
+  if (split.length === 3) {
+    const [ivPart, middlePart, endPart] = split;
+    const iv = decodeFlexible(ivPart);
+    const middle = decodeFlexible(middlePart);
+    const end = decodeFlexible(endPart);
+
+    try {
+      return tryDecrypt(iv, middle, end);
+    } catch {
+      return tryDecrypt(iv, end, middle);
+    }
   }
 
   const packed = Buffer.from(payload, 'base64');
@@ -430,7 +441,7 @@ async function handleFormSubmission(event, type) {
       return response(400, { ok: false, message: 'La consulta es obligatoria y debe tener al menos 10 caracteres.' }, event);
     }
 
-    subject = `Nueva solicitud de presupuesto - ${toSingleLine(fullName)}`;
+    subject = 'Glisten - consulta de cotizacion';
     html = [
       '<h2>Nueva solicitud de presupuesto</h2>',
       `<p><strong>Nombre:</strong> ${escapeHtml(fullName)}</p>`,
@@ -457,7 +468,7 @@ async function handleFormSubmission(event, type) {
       });
     }
 
-    subject = `Nueva postulacion - ${toSingleLine(fullName)}`;
+    subject = 'Glisten - nueva postulacion';
     html = [
       '<h2>Nueva postulacion</h2>',
       `<p><strong>Nombre:</strong> ${escapeHtml(fullName)}</p>`,
