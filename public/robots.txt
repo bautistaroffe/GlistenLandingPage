@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.glisten-limpieza.com/sitemap.xml
+Sitemap: https://glisten-limpieza.netlify.app/sitemap.xml
