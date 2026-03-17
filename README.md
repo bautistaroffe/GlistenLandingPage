@@ -28,7 +28,7 @@ SMTP_USER=usuario_smtp
 SMTP_PASS=clave_smtp
 MAIL_FROM=no-reply@empresa.com
 MAIL_TO=destino@empresa.com
-ALLOWED_ORIGINS=https://tu-sitio.netlify.app,http://localhost:3000
+ALLOWED_ORIGINS=https://www.glisten-limpieza.com,https://glisten-limpieza.com,http://localhost:3000
 MAIL_TO_ENCRYPTED=
 MAIL_TO_KEY=
 MIN_FILL_TIME_MS=1500
@@ -95,3 +95,4 @@ Rutas compatibles:
 +- package.json
 +- README.md
 ```
+
