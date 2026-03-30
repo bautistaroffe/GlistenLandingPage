@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default theme: home (used by index.html and contacto.html) */
+:root {
+  --color-primary: 13 148 136;       /* #0d9488 */
+  --color-secondary: 68 64 64;       /* #444040 */
+  --color-bg-light: 248 250 252;     /* #f8fafc */
+  --color-bg-dark: 15 23 42;         /* #0f172a */
+  --color-surface-light: 243 244 246;/* #f3f4f6 */
+  --color-surface-dark: 55 65 81;    /* #374151 */
+  --color-text-light: 31 41 55;      /* #1f2937 */
+  --color-text-dark: 249 250 251;    /* #f9fafb */
+  --color-muted-light: 107 114 128;  /* #6b7280 */
+  --color-muted-dark: 156 163 175;   /* #9ca3af */
+}
+
+/* Quote theme: solicita-presupuesto.html */
+.theme-quote {
+  --color-primary: 26 54 93;         /* #1a365d */
+  --color-secondary: 100 181 246;    /* #64b5f6 */
+  --color-bg-light: 255 255 255;     /* #ffffff */
+  --color-bg-dark: 31 41 55;         /* #1f2937 */
+  --color-surface-light: 243 244 246;/* #f3f4f6 */
+  --color-surface-dark: 55 65 81;    /* #374151 */
+  --color-text-light: 31 41 55;      /* #1f2937 */
+  --color-text-dark: 249 250 251;    /* #f9fafb */
+  --color-muted-light: 107 114 128;  /* #6b7280 */
+  --color-muted-dark: 156 163 175;   /* #9ca3af */
+}
+
+/* Work theme: trabaja-con-nosotros.html */
+.theme-work {
+  --color-primary: 13 148 136;       /* #0d9488 */
+  --color-secondary: 68 64 64;       /* #444040 */
+  --color-bg-light: 243 244 246;     /* #f3f4f6 */
+  --color-bg-dark: 31 41 55;         /* #1f2937 */
+}

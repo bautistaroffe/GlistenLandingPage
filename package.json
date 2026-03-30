@@ -4,8 +4,11 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
+    "build:css": "npx tailwindcss -i ./src/input.css -o ./public/assets/css/tailwind.css --minify",
+    "watch:css": "npx tailwindcss -i ./src/input.css -o ./public/assets/css/tailwind.css --watch",
     "start": "node server.js",
-    "dev": "node server.js",
+    "dev": "npm run watch:css & node server.js",
+    "build": "npm run build:css",
     "encrypt:mail-to": "node scripts/encrypt-mail-to.js"
   },
   "dependencies": {
@@ -13,5 +16,11 @@
     "express": "^4.21.2",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.16"
+  },
+  "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/typography": "^0.5.19",
+    "tailwindcss": "^3.4.19"
   }
 }

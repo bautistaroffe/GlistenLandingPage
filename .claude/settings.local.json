@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/roffe/OneDrive/Desktop/extra/Diseño/glisten/GlistenLandingPage -type f -name *.html -o -name *.js -o -name *.jsx -o -name *.ts -o -name *.tsx -o -name *.xml -o -name *.json -o -name .htaccess -o -name robots.txt -o -name sitemap.xml -o -name *.config.js -o -name vercel.json)",
+      "Bash(grep:*)",
+      "Bash(npm install:*)",
+      "Bash(curl -L -o servicio-oficinas.jpg \"https://lh3.googleusercontent.com/aida-public/AB6AXuBXvunXbpetpGg8mr62SXsfUMwi291VmrZeMmeVSuMyg_jR5zSecw49p6cXj53N7c8ZTsUjSGKY9VEcGlc-tvSPDIyxwURjJu0K3khkF8TuLyG74LHKjSlLkj09gLkwaJDPNfLIevufLOoVVTQPhkQWBluonYAkJsLifmbEFA9Q_en1K4aar5BYLEfQJeu2R-FareEy-j6zdkGOzjrZn_RYnRaObkwDAa-7c6PydKAPQMHwkyOApWf7KCWvxt7VwRGAc3YleK79EpSS\")",
+      "Bash(curl -L -o servicio-clinicas.jpg \"https://lh3.googleusercontent.com/aida-public/AB6AXuDL-mZ6Gi06W0kPXky9w-TQAe3XMbOkrVBXoLJeg7YsOVf6yO001DtT3sBsnlCS_pJNsli9YTsTpxKwx8nq1YzC7c21pQ9ei8iL8X0rM8NEQAjCosrFLC-LzLKrtZ_GDQ3yZFHAX6HOh5VY0tCJR5HPQ-JkEIdSmVqOffgETYiWP4ejscoXeibQngCljiIgGcGJCYpgCmVayKu0q0BSJ5rIX41bOGOubk096mPInftDQo9oxeSPGKSQfeFdK-DgejHHX4LJodWhbbZv\")",
+      "Bash(curl -L -o servicio-comercial.jpg \"https://lh3.googleusercontent.com/aida-public/AB6AXuBlcj5X-wz1kM2dFjoE04aShx-FdpiCpZhQP2JqTlOS3kGkQyv370VydJHcw3OLrB2FxFSJA60fp59Nx2z4-OxTUtnLw3ZMuwYS-lo-SgL7ReuldyiVQcnxXyBgaSRywSdDG0Tn8jhG08IufepkZP2xNzVHvfw0bnhKJ_KE_PPtWsWYLUzSBD53WjJ22hOh1vbD4c1O_pOpqfAYEs2-R1wyIfgMGWasW9ef756bToXeQZX7EWX1j1r1Zv-8K_8w2PlD8gjCfPtuMMlr\")",
+      "Bash(curl -L -o fondo-trabaja.jpg \"https://lh3.googleusercontent.com/aida-public/AB6AXuC88uLoJ7RUz2Kyw_QjzYXdoat7rriI5v-iXETxB2mNiXhhve7PzN_3AHefE7urwRHwzy5Vf6n8I0K7LpMmurary5yN6iWTE3j6-xqUOMHHgpACcseSi62nqnCCPwAZZzUcatfwro61yiXa-lCX-acxGc0yYR4JfagXGyVGNnXFqonkyhAwIjV3s_hCdS_Y1RO-KgFZY-LOLLaHsZv0zVn0_-y8UP12ebEZwkgZgZQ36aSnMRxpT2n074EGWUlAKDGTDLkyusjYe5bH\")",
+      "Bash(npx tailwindcss:*)"
+    ]
+  }
+}

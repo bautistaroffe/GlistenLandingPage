@@ -1,6 +1,14 @@
 [build]
+  command = "npm run build:css"
   publish = "public"
   functions = "netlify/functions"
+
+# Forzar dominio principal con www
+[[redirects]]
+  from = "https://glisten-limpieza.com/*"
+  to = "https://www.glisten-limpieza.com/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/api/solicitar-presupuesto"
@@ -25,3 +33,16 @@
   to = "/.netlify/functions/trabaja-con-nosotros"
   status = 200
   force = true
+
+# Headers de seguridad y SEO
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
